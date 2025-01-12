@@ -47,7 +47,7 @@
             <input type="time" id="endTime">
 
             <button onclick="saveShiftDetails()">Save Shift</button>
-            <button onclick="showStep('income-details')">Back</button>
+            <button id="backToIncome" onclick="navigateBack('shiftDetails')">Back</button>
             <button onclick="calculateShifts()">Proceed to Results</button>
 
             <div id="shiftListContainer">
@@ -72,7 +72,7 @@
 
             <button onclick="displayIncomeBreakdown()">Show Breakdown</button>
             <div id="income-breakdown"></div>
-            <button onclick="showStep('shiftDetails')">Back to Shifts</button>
+            <button id="backToShifts" onclick="navigateBack('results')">Back</button>
         </div>
     </div>
     <script src="app.js"></script>
