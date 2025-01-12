@@ -1,0 +1,130 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 20px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h1, h2, h3 {
+    color: #333;
+}
+
+label {
+    display: block;
+    margin-top: 15px;
+    font-weight: bold;
+}
+
+input, select, button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 5px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+#results {
+    margin-top: 20px;
+}
+.days{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: auto;
+    gap: 20px;
+    justify-content: center;
+    align-content: center;
+}
+.days button {
+    background-color: #f0f0f0;
+    color: #333;
+    border: 1px solid #ddd;
+    border-radius: 2rem;
+    padding: 10px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: auto;
+}
+
+.days button:hover {
+    background-color: #e9e9e9;
+}
+.days button.active {
+    background-color: #007bff;
+    color: white;
+    border-color: #0056b3;
+}
+
+#shiftListContainer {
+    margin-top: 20px;
+}
+.shift-summary{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.shift-item {
+    background: #f9f9f9;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+.shift-actions{
+    display: flex;
+    gap: 10px;
+    align-content: center;
+    justify-content: center;
+}
+.shift-item button{
+    width: 100px;
+    border-radius: 1rem;
+}
+
+#edit-button {
+    background: #28a745;
+}
+#edit-button:hover {
+    background: #218838;
+}   
+#edit-button:active {
+    background: #1e7e34;
+}
+
+#delete-button {
+    background: #dc3545;
+}   
+#delete-button:hover {
+    background: #c82333;
+}
+#delete-button:active {
+    background: #bd2130;
+}

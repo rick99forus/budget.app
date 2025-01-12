@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Income Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Income Calculator</h1>
+
+        <!-- Step 1: Income Details -->
+        <div id="income-details">
+            <h2>Step 1: Enter Your Income Details</h2>
+            <label for="positionType">Position Type:</label>
+            <select id="positionType">
+                <option value="full-time">Full-time</option>
+                <option value="part-time">Part-time</option>
+                <option value="casual">Casual</option>
+            </select>
+
+            <label for="hourlyRate">Hourly Rate ($):</label>
+            <input type="number" id="hourlyRate" placeholder="Enter hourly rate" min="0" step="0.01">
+
+            <button onclick="saveIncomeDetails()">Next</button>
+        </div>
+
+        <!-- Step 2: Shift Details -->
+        <div id="shiftDetails" style="display: none;">
+            <h2>Step 2: Enter Shift Details</h2>
+            <h3>Select Days Worked:</h3>
+            <div class="days">
+                <button id="Monday" onclick="toggleDay('Monday')">Monday</button>
+                <button id="Tuesday" onclick="toggleDay('Tuesday')">Tuesday</button>
+                <button id="Wednesday" onclick="toggleDay('Wednesday')">Wednesday</button>
+                <button id="Thursday" onclick="toggleDay('Thursday')">Thursday</button>
+                <button id="Friday" onclick="toggleDay('Friday')">Friday</button>
+                <button id="Saturday" onclick="toggleDay('Saturday')">Saturday</button>
+                <button id="Sunday" onclick="toggleDay('Sunday')">Sunday</button>
+            </div>
+
+            <label for="startTime">Shift Start Time (HH:MM):</label>
+            <input type="time" id="startTime">
+
+            <label for="endTime">Shift End Time (HH:MM):</label>
+            <input type="time" id="endTime">
+
+            <button onclick="saveShiftDetails()">Save Shift</button>
+            <button onclick="showStep('income-details')">Back</button>
+            <button onclick="calculateShifts()">Proceed to Results</button>
+
+            <div id="shiftListContainer">
+                <h3>Your Shifts:</h3>
+                <div id="shiftList"></div>
+            </div>
+        </div>
+
+        <!-- Step 3: Results -->
+        <div id="results" style="display: none;">
+            <h2>Results</h2>
+            <div id="shift-summary"></div>
+
+            <h3>Income Breakdown</h3>
+            <label for="period">Select Period:</label>
+            <select id="period">
+                <option value="weekly">Weekly</option>
+                <option value="fortnightly">Fortnightly</option>
+                <option value="monthly">Monthly</option>
+                <option value="yearly">Yearly</option>
+            </select>
+
+            <button onclick="displayIncomeBreakdown()">Show Breakdown</button>
+            <div id="income-breakdown"></div>
+            <button onclick="showStep('shiftDetails')">Back to Shifts</button>
+        </div>
+    </div>
+    <script src="app.js"></script>
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/service-worker.js')
+                .then(reg => console.log('Service Worker Registered', reg))
+                .catch(err => console.error('Service Worker Registration Failed', err));
+        }
+    </script>
+</body>
+</html>
